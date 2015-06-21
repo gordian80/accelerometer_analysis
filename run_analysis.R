@@ -7,15 +7,15 @@ activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
 features <- read.table("UCI HAR Dataset/features.txt")
 
 #import test data from text files
-X_test<- read.table("R/data/UCI HAR Dataset/test/X_test.txt")
-Y_test<- read.table("R/data/UCI HAR Dataset/test/y_test.txt")
-subject_test<- read.table("R/data/UCI HAR Dataset/test/subject_test.txt")
+X_test<- read.table("UCI HAR Dataset/test/X_test.txt")
+Y_test<- read.table("UCI HAR Dataset/test/y_test.txt")
+subject_test<- read.table("UCI HAR Dataset/test/subject_test.txt")
 
 
 #import train data from text files
-X_train<- read.table("R/data/UCI HAR Dataset/train/X_train.txt")
-Y_train<- read.table("R/data/UCI HAR Dataset/train/y_train.txt")
-subject_train<- read.table("R/data/UCI HAR Dataset/train/subject_train.txt")
+X_train<- read.table("UCI HAR Dataset/train/X_train.txt")
+Y_train<- read.table("UCI HAR Dataset/train/y_train.txt")
+subject_train<- read.table("UCI HAR Dataset/train/subject_train.txt")
 
 #join test and train data
 x <- rbind(X_train, X_test)
@@ -31,10 +31,10 @@ colnames(s) <- "Subject"
 extract_features <- grep("-mean\\(\\)|-std\\(\\)", features[,2])
 x <- x[, extract_features] 
 
-# Merge all the data together
+# Merge all the data
 allData <- cbind(x,y,s)
 
-# Name the activities in the data set
+# Substitute numbers in the activity coloumn with the activity names
 for (i in 1:6){
     allData$Activity[allData$Activity == i] <- as.character(activity_labels[i,2])
 }
