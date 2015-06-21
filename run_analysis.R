@@ -39,7 +39,7 @@ for (i in 1:6){
     allData$Activity[allData$Activity == i] <- as.character(activity_labels[i,2])
 }
 
-# Creates a tidy data set with the average of each variable for each activity and each subject and save
+# Create a tidy data set with the average of each variable for each activity and each subject and save
 # it to "tidyData.txt"
 
 DT <- data.table(allData)
