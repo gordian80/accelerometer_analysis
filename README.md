@@ -9,7 +9,6 @@ The script performs the following steps:
 * Labels the data set with variable names. 
 * Creates a tidy data set with the average of each variable for each activity and each subject and saves it to "tidyData.txt".
 
-Libraries
----------
+### Libraries
 
 The script requires data.table and dplyr packages.
